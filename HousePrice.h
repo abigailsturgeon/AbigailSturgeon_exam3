@@ -25,7 +25,9 @@ private:
 public:
     HousePrice();
     HousePrice(int id, int number, const string &street, const string &city, const string &state, int postalCode, double price);
-
+    double getPrice() const;
+    const string &getState () const;
+    friend ostream & operator << (ostream &os, const HousePrice &price);
 };
 
 

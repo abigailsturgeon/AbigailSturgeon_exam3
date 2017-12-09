@@ -12,7 +12,7 @@ int main(int argc, char*argv[])
 {
 	// Part I
 	HousePrice test(2, 123, "Weber St", "Ogden", "UT", 84408, 257000.00);
-	//cout << test << endl;
+	cout << test << endl;
 
 //	// Part II
 //	vector<HousePrice> hp;
