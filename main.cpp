@@ -15,12 +15,12 @@ int main(int argc, char*argv[])
 	cout << test << endl;
 
 //	// Part II
-//	vector<HousePrice> hp;
-//	readCSV("../MOCK_DATA.csv",hp);
+	vector<HousePrice> hp;
+	readCSV("../MOCK_DATA.csv",hp);
 //
 //	// Part III
-//	cout<<"This is your House Analysis"<<endl;
-//	houseMarketValues(hp);
+	cout<<"This is your House Analysis"<<endl;
+	houseMarketValues(hp);
 //
 //	// Part IV
 //	houseMarketPerState(hp);

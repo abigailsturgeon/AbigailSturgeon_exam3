@@ -23,9 +23,22 @@ using namespace std;
  */
 void readCSV(const string fileIn,vector<HousePrice>& hp)
 {
-
+    io::CSVReader<7> in(fileIn);
+    in.read_header(io::ignore_extra_column, "id", "number", "street", "city", "state", "postalCode", "price");
+    int id, number;
+    string street, city, state;
+    int postalCode;
+    double price;
+    while(in.read_row(id, number, street, city, state, postalCode, price))
+    {
+        HousePrice hp1(id, number, street, city, state, postalCode, price);
+        hp.push_back(hp1);
+    }
+    for(auto i = hp.begin(); i != hp.end(); ++i)
+    {
+        cout << *i << ' ' << endl;
+    }
 }
-
 
 /*!
  * Sort the Vector of HousePrice Objects by price. Display the most affordable
@@ -34,7 +47,13 @@ void readCSV(const string fileIn,vector<HousePrice>& hp)
  */
 void houseMarketValues(vector<HousePrice> &hp)
 {
-    // Sort by Price
+   sort(hp.begin(), hp.end(), [](const HousePrice& lhs, const HousePrice& rhs)
+    {
+        return lhs.getPrice() < rhs.getPrice();
+    });
+
+    cout << "Most Affordable House: " << hp.front() << endl;
+    cout << "Most Expensive House: " << hp.back() << endl;
 
 }
 
