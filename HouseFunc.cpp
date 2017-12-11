@@ -52,8 +52,8 @@ void houseMarketValues(vector<HousePrice> &hp)
         return lhs.getPrice() < rhs.getPrice();
     });
 
-    cout << "Most Affordable House: " << hp.front() << endl;
-    cout << "Most Expensive House: " << hp.back() << endl;
+    cout << "Most Affordable House: " << hp.front();
+    cout << "\nMost Expensive House: " << hp.back();
 
 }
 
@@ -66,5 +66,24 @@ void houseMarketValues(vector<HousePrice> &hp)
  */
 void houseMarketPerState(vector<HousePrice> &hp)
 {
-    // Sort by State
+    int n = 1;
+    sort(hp.begin(), hp.end(), [](const HousePrice& lhs, const HousePrice& rhs)
+    {
+        return lhs.getState() < rhs.getState();
+    });
+
+    map<string, int> mState;
+    for(auto item:hp)
+    {
+        mState[item.getState()] = n;
+        n++;
+    }
+
+    cout << "\n#Homes per State: " << endl;
+    int i = 0;
+    for(auto item:mState)
+    {
+        cout << item.first << " " << item.second << '\t';
+        i++;
+    }
 }

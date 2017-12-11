@@ -23,7 +23,7 @@ int main(int argc, char*argv[])
 	houseMarketValues(hp);
 //
 //	// Part IV
-//	houseMarketPerState(hp);
+    houseMarketPerState(hp);
 
     return 0;
 }
